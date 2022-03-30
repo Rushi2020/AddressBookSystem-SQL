@@ -19,7 +19,7 @@ select * from AddressBook_Table;
 --UC3 - Insert new contacts into Addressbook
 insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email)
 values
-('Rushi', 'Patil', 'Kolhapur', 'Latur', 'Maharashtra', 416008, 8185632101, 'ruship12@gmail.com'),
+('Rushi', 'Patil', 'rp', 'kolhapur', 'Maharashtra', 416008, 8185632101, 'ruship12@gmail.com'),
 ('rti', 'Pawar', 'Sangli', 'mumbai', 'UP', 412007, 7896584125, 'rti134@gmail.com'),
 ('prashant', 'Gokhale', 'mkroad', 'karnataka', 'rajshthan', 856142, 8562102035, 'gokhale555@gmail.com'),
 ('Pratham', 'Tibile', '', 'chittod', 'Rajasthan', 522412, 6525140052, 'tibilepratham@gmail.com');
@@ -35,3 +35,6 @@ select * from AddressBook_Table;
 --UC5 - Delete existing contact person using name.
 delete from AddressBook_Table where FirstName = 'Pratham' and LastName = 'Tibile';
 select * from AddressBook_Table;
+
+--UC6 - Retrieve person belonging to a city or state from AddressBook.
+select * from AddressBook_Table where City = 'kolhapur' or State = 'Maharashtra';
