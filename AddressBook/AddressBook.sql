@@ -39,3 +39,7 @@ select * from AddressBook_Table;
 --UC6 - Retrieve person belonging to a city or state from AddressBook.
 select * from AddressBook_Table where City = 'kolhapur' or State = 'Maharashtra';
 
+--UC7 - Size of AddressBook by city and state 
+select COUNT(*) as StateCount, State from AddressBook_Table group by State;
+select COUNT(*) as CityCount, City from AddressBook_Table group by City;
+
