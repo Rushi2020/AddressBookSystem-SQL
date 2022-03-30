@@ -46,3 +46,13 @@ select COUNT(*) as CityCount, City from AddressBook_Table group by City;
 ---UC8 - Get Sorted entries alphabeticaly by person's name for a given city.
 select * from AddressBook_Table where City = 'kolhapur' order by FirstName,LastName;
 
+
+--UC9 - Adding Address Book With Name and Type.
+alter table AddressBook_Table add AddressBookName varchar(50),AddressBookType varchar(50);
+select * from AddressBook_Table;
+
+--update values for created book name and book type column
+update AddressBook_Table set AddressBookName = 'family address book', AddressBookType = 'Family' where FirstName = 'rti';
+update AddressBook_Table set AddressBookName = 'friends address book', AddressBookType = 'Friends' where FirstName = 'Pratham';
+update AddressBook_Table set AddressBookName = 'profession address book', AddressBookType = 'Profession' where FirstName = 'prashant';
+
