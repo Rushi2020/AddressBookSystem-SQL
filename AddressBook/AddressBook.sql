@@ -38,3 +38,4 @@ select * from AddressBook_Table;
 
 --UC6 - Retrieve person belonging to a city or state from AddressBook.
 select * from AddressBook_Table where City = 'kolhapur' or State = 'Maharashtra';
+
