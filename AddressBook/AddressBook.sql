@@ -43,3 +43,6 @@ select * from AddressBook_Table where City = 'kolhapur' or State = 'Maharashtra'
 select COUNT(*) as StateCount, State from AddressBook_Table group by State;
 select COUNT(*) as CityCount, City from AddressBook_Table group by City;
 
+---UC8 - Get Sorted entries alphabeticaly by person's name for a given city.
+select * from AddressBook_Table where City = 'kolhapur' order by FirstName,LastName;
+
