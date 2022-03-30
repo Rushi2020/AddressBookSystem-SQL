@@ -31,3 +31,7 @@ select * from AddressBook_Table;
 update AddressBook_Table set City = 'Gujrat' where FirstName = 'Pratham' and LastName = 'Tibile';
 update AddressBook_Table set State = 'Goa' where FirstName = 'prashant' and LastName = 'Gokhale';
 select * from AddressBook_Table;
+
+--UC5 - Delete existing contact person using name.
+delete from AddressBook_Table where FirstName = 'Pratham' and LastName = 'Tibile';
+select * from AddressBook_Table;
