@@ -15,3 +15,14 @@ PhoneNumber bigint,
 Email varchar(100)
 );
 select * from AddressBook_Table;
+
+--UC3 - Insert new contacts into Addressbook
+insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email)
+values
+('Rushi', 'Patil', 'Kolhapur', 'Latur', 'Maharashtra', 416008, 8185632101, 'ruship12@gmail.com'),
+('rti', 'Pawar', 'Sangli', 'mumbai', 'UP', 412007, 7896584125, 'rti134@gmail.com'),
+('prashant', 'Gokhale', 'Ujlaiwadi', 'Delhi', 'rajshthan', 856142, 8562102035, 'gokhale555@gmail.com'),
+('Pratham', 'Tibile', 'Shastrinagar', 'bangalore', 'chennai', 522412, 6525140052, 'tibilepratham@gmail.com');
+
+-- for Displaying adressbook
+select * from AddressBook_Table;
