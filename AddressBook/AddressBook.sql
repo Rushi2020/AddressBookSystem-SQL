@@ -21,8 +21,13 @@ insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, Ph
 values
 ('Rushi', 'Patil', 'Kolhapur', 'Latur', 'Maharashtra', 416008, 8185632101, 'ruship12@gmail.com'),
 ('rti', 'Pawar', 'Sangli', 'mumbai', 'UP', 412007, 7896584125, 'rti134@gmail.com'),
-('prashant', 'Gokhale', 'Ujlaiwadi', 'Delhi', 'rajshthan', 856142, 8562102035, 'gokhale555@gmail.com'),
-('Pratham', 'Tibile', 'Shastrinagar', 'bangalore', 'chennai', 522412, 6525140052, 'tibilepratham@gmail.com');
+('prashant', 'Gokhale', 'mkroad', 'karnataka', 'rajshthan', 856142, 8562102035, 'gokhale555@gmail.com'),
+('Pratham', 'Tibile', '', 'chittod', 'Rajasthan', 522412, 6525140052, 'tibilepratham@gmail.com');
 
 -- for Displaying adressbook
+select * from AddressBook_Table;
+
+--UC4 - Edit existing contact person using name
+update AddressBook_Table set City = 'Gujrat' where FirstName = 'Pratham' and LastName = 'Tibile';
+update AddressBook_Table set State = 'Goa' where FirstName = 'prashant' and LastName = 'Gokhale';
 select * from AddressBook_Table;
