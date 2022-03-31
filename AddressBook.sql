@@ -56,3 +56,15 @@ update AddressBook_Table set AddressBookName = 'family address book', AddressBoo
 update AddressBook_Table set AddressBookName = 'friends address book', AddressBookType = 'Friends' where FirstName = 'Pratham';
 update AddressBook_Table set AddressBookName = 'profession address book', AddressBookType = 'Profession' where FirstName = 'prashant';
 
+--UC10 - Get number of contact persons i,e count by type.
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Family';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Friends';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Profession';
+
+--UC11 - Add person to friend and family
+insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email, AddressBookName, AddressBookType)
+values
+('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com','friends address book', 'Friends'),
+('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com', 'family address book', 'Family');
+select * from AddressBook_Table;
+
