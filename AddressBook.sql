@@ -56,3 +56,75 @@ update AddressBook_Table set AddressBookName = 'family address book', AddressBoo
 update AddressBook_Table set AddressBookName = 'friends address book', AddressBookType = 'Friends' where FirstName = 'Pratham';
 update AddressBook_Table set AddressBookName = 'profession address book', AddressBookType = 'Profession' where FirstName = 'prashant';
 
+ressBook_Table set AddressBookName = 'profession address book', AddressBookType = 'Profession' where FirstName = 'gouri';
+
+--UC10 - Get number of contact persons i,e count by type.
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Family';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Friends';
+select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Profession';
+
+--UC11 - Add person to friend and family
+insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email, AddressBookName, AddressBookType)
+values
+('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com','friends address book', 'Friends'),
+('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com', 'family address book', 'Family');
+select * from AddressBook_Table;
+
+--UC12 - Creating different entities.
+--creating table of typeofcontacts
+create table TypesOfContacts
+(
+typeid int primary key ,
+typename varchar(50) not null);
+--inserting data into type of contacts
+insert into Typesofcontacts
+values
+(1,'Family'),
+(2,'Friends'),
+(3,'Business');
+
+alter table AddressBook_Table
+add contactid int primary key identity(1,1);
+select *from AddressBook_Table;
+
+--Creating table of address book names
+create table AddressBookNames
+(addressBookId int primary key identity(1,1),
+addressBookName varchar(50) not null );
+--inserting values to addressbook table
+insert into AddressBooknames values ('S'),('P'),('H');
+select * from AddressBookNames;
+
+--creating table address book names mapper which will contain contact id and address book names id
+create table addressbookMapping
+(contactid int not null, addressbookid int not null);
+--inserting data into address book mapper id
+insert into addressbookMapping values (1,1),(2,1),(3,2);
+select * from addressbookMapping;
+
+select a.firstname, a.phoneNumber, a.city, a.state, a.eMail, b.addressbookname, b.addressBookId
+from AddressBook_Table a
+join addressbookMapping d
+on a.contactid = d.contactId
+join AddressBookNames b
+on b.addressBookId= d.addressbookId
+
+--UC13 - Retrieving data using new table structure.
+--For UC6
+select FirstName,LastName,city from AddressBook_Table where FirstName='Virat';
+
+--For UC7
+select city,count(*) from AddressBook_Table where city='Latur' group by city;
+
+--For UC8
+select * from  AddressBook_Table where city='Latur' order by FirstName,LastName;
+
+--For UC10
+select typename,count(*) numberOfContactPersons from AddressBook_Table a
+join addressbookMapping am
+on am.contactid= a.contactid
+join TypesOfContacts t
+on t.typeid= am.addressbookid
+group by t.typename;
+select * from AddressBook_Table;
+
