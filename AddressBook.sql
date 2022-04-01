@@ -61,10 +61,3 @@ select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where
 select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Friends';
 select count(AddressBookType) as 'NumberOfContacts' from AddressBook_Table where AddressBookType='Profession';
 
---UC11 - Add person to friend and family
-insert into AddressBook_Table(FirstName, LastName, Address, City, State, Zip, PhoneNumber, Email, AddressBookName, AddressBookType)
-values
-('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com','friends address book', 'Friends'),
-('Virat', 'Kohli', 'RCB', 'Bangalore', 'Karnataka', 560040, 1231231235, 'virat@gmail.com', 'family address book', 'Family');
-select * from AddressBook_Table;
-
